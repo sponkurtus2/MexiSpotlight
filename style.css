@@ -1,0 +1,131 @@
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: #86A789;
+    --primary-hover: #4caf50;
+    --primary-focus: rgba(67, 160, 71, 0.25);
+    --primary-inverse: #FFF;
+  }
+}
+
+.mainArticle {
+  margin: 0;
+}
+
+.secondArticle {
+  background-color: #FAF8ED;
+  margin: 0;
+}
+
+strong {
+  font-size: xx-large;
+}
+
+mark {
+  background-color: #86A789 ;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin-top: 0;
+}
+
+
+/* Adjust the styles for the images within the cards */
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style the text and button within the card */
+.card h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+
+/* Hamburger button */
+
+/* Estilos para el botón de hamburguesa */
+/* Estilos para el botón de hamburguesa */
+#menu-toggle {
+    display: none; /* Inicialmente oculto en pantallas grandes */
+}
+
+/* Estilos para el menú */
+nav ul {
+    /* Make the markers disappear */
+    list-style-type: none;
+    padding: 0; /* Elimina el relleno por defecto en la lista */
+}
+
+nav ul li {
+    /* Puts the elements in a single line */
+    display: inline-flex;
+    margin: 0.3em 1em;
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* These two lines make the checkbox and the label disappear when we are in desktop mode. */
+nav input[type="checkbox"],
+nav label {
+    display: none;
+}
+
+/* This start to get interesting: we go into mobile phone mode */
+@media (max-width: 576px) {
+    /* Here is the magic: if the checkbox is not marked, the adjacent list is not displayed */
+    input[type="checkbox"]:not(:checked) + ul {
+        display: none;
+        position: absolute; /* Posición absoluta para centrar */
+        top: 50%; /* Centra verticalmente */
+        left: 50%; /* Centra horizontalmente */
+        transform: translate(-50%, -50%); /* Centra con precisión */
+        background: #fff; /* Fondo blanco para mayor claridad */
+        border: 1px solid #000; /* Borde opcional */
+        padding: 1em; /* Espaciado interno */
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Styling the menu icon, the checkbox stays hidden */
+    nav label {
+        text-align: right;
+        display: block;
+        padding: 0.5em;
+        line-height: 1.6em;
+        align-self: center;
+        cursor: pointer; /* Cambia el cursor a un puntero para indicar clicabilidad */
+    }
+
+    /* Because we are in mobile mode, we want to display it as a vertical list */
+    nav ul {
+        display: block;
+    }
+
+    /* We have two lists: the first one are the always visible items in the
+        menu bar. The second one is the one that will be hidden */
+    nav ul:last-child {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    nav ul li {
+        margin-bottom: 0;
+        width: 100%;
+        text-align: right;
+        padding: 0.5em;
+    }
+}
