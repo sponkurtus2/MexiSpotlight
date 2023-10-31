@@ -1,9 +1,6 @@
-from flask import Flask, render_template
-
+from flask import Flask, request, jsonify, render_template
+import requests
 app = Flask(__name__)
-
-
-
 
 class ApiClient:
     apiKey = '21D487D40AFD9B56F3F8369E11C599B4566067F18D8B19065DE6E9C89B0717D314D3485030D904674554E0D792C606DD'
@@ -35,11 +32,11 @@ def Send(request):
     body_html = request.form.get('bodyHtml') or request.form.get('bodyHtml')
 
     return ApiClient.Request('POST', '/email/send', {
-        'subject': request.form.get('subject'),
+        'subject': "Welcome to MexiSpotlight",
         'from': 'mexispotlight@gmail.com',
-        'fromName': 'Carlitos API',
+        'fromName': 'MexiSpotlight',
         'to': request.form.get('to'),
-        'bodyHtml': f'<h1>{body_html}</h1>',
+        'bodyHtml': f'<h1>The web is still under building...</h1>',
         'bodyText': '',
         'isTransactional': False
     })
